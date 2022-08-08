@@ -10,9 +10,10 @@ export default function Courses() {
   const [courses, setCourses] = useState([...listCourse]);
   return (
     <div>
-      {courses.map((el) => (
+      {/* {courses.map((el) => (
         <ItemCourse key={el.id} inforCourse={el} />
-      ))}
+      ))} */}
     </div>
   );
 }
+
