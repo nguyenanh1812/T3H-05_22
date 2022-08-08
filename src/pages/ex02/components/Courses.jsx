@@ -33,7 +33,6 @@ export default function Courses({ setListCourse }) {
     //   },
     // ]);
   };
-
   return (
     <div>
       {/* {courses.map((el) => (
@@ -41,7 +40,7 @@ export default function Courses({ setListCourse }) {
       ))} */}
 
       {courses.map((el) => (
-        <ItemCourse key={el.id} inforCourse={el} btnCheckBox={btnCheckBox} />
+        <ItemCourse key={el.id} inforCourse={el} btnCheckBox={btnCheckBox}/>
       ))}
     </div>
   );

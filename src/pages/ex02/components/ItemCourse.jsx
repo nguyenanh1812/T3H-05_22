@@ -4,6 +4,7 @@ import Img from "./Img";
 // import Input from "./Input";
 import CheckBox from "./CheckBox";
 import { data } from "../../../constants";
+import { Dropdown } from "./Dropdown";
 
 const listCourse = data.map((el, index) => ({
   ...el,
@@ -13,11 +14,12 @@ const listCourse = data.map((el, index) => ({
 export default function ItemCourse({
   inforCourse,
   setListCourse,
-  btnCheckBox,
+  btnCheckBox
 }) {
   // const [isChecked, setIsChecked] = useState(false);
   const [courses, setCourses] = useState([...listCourse]);
   const [index, setIndex] = useState(0);
+  const [option, setOption]  =useState({})
 
   const [arrValueCheck, setArrValueCheck] = useState(
     listCourse.map((elm) => {
@@ -44,8 +46,17 @@ export default function ItemCourse({
   // const handleUnchecked = () => {
   //   setIsChecked(!isChecked);
   // };
+  const handleOptChange= (e)=> {
+    console.log(e.target.value);
+    const value =inforCourse.opt.find(opt => opt.value == e.target.value)
+    console.log(value);
+    setOption(
+      value
+    )
+  }
+
   return (
-    <div className='container my-3'>
+    <div className='container my-3 border border-3 rounded p-2'>
       <div
         className='row d-flex align-items-center'
         style={{ cursor: "pointer" }}
@@ -59,22 +70,22 @@ export default function ItemCourse({
           </div>
           <div className='col-5 d-flex flex-column justify-content-start'>
             <div className='text-start'>{name}</div>
-            <div className='text-start'>{crrItem.name}</div>
+            <div className='text-start'>{option.name || crrItem.name}</div>
             <div className='text-start w-100'>
-              {/* <Dropdown inforCourse={inforCourse} setPrice={setPrice} /> */}
+              <Dropdown inforCourse={inforCourse}  handleOptChange={handleOptChange}/>
             </div>
           </div>
         </div>
         <div className='col-6 row d-flex align-items-center'>
           <div className='col-6'>
-            <div className='fs-4'>${crrItem.priceDiscount} /month</div>
-            <div className='text-success'>( %{crrItem.percenDiscount} off)</div>
+            <div className='fs-4'>${option.priceDiscount || crrItem.priceDiscount} /month</div>
+            <div className='text-success'>( %{option.percenDiscount || crrItem.percenDiscount} off)</div>
             <div className='text-decoration-line-through'>
-              $ {crrItem.price}/month
+              $ {option.price || crrItem.price}/month
             </div>
           </div>
           <div className='col-6 fs-5 text-success'>
-            - $ {crrItem.price - crrItem.priceDiscount}
+            - $ {(option.price - option.priceDiscount) || crrItem.price - crrItem.priceDiscount}
           </div>
         </div>
       </div>

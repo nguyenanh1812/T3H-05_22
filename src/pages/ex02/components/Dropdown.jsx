@@ -1,17 +1,17 @@
 import React from "react";
 
-export const Dropdown = ({ inforCourse, setPrice }) => {
+export const Dropdown = ({ inforCourse, handleOptChange }) => {
   return (
-    <div className=''>
-      <select className='w-25 p-2' style={{ fontWeight: "700" }}>
+    <>
+      <select key={inforCourse.id} className='w-100 p-2' style={{ fontWeight: "700"}} onChange={handleOptChange}>
         {inforCourse.opt.map((item) => {
           return (
-            <option value={item.name} onClick={setPrice}>
+            <option key={inforCourse.id + item.value} value={item.value}>
               {item.name}
             </option>
           );
         })}
       </select>
-    </div>
+    </>
   );
 };

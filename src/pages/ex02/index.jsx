@@ -9,7 +9,9 @@ export default function CoursesContainer() {
   return (
     <div>
       <Courses setListCourse={setListCourse} />
-      <TotalMoney />
+      <div className="container">
+        <TotalMoney />
+      </div>
     </div>
   );
 }
