@@ -1,10 +1,9 @@
-// import logo from "./logo.svg";
 import "./App.css";
 import CoursesContainer from "./pages/ex02";
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <CoursesContainer />
     </div>
   );

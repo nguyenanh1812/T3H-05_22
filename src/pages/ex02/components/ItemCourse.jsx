@@ -1,9 +1,12 @@
-import React from 'react'
 import CheckBox from './CheckBox'
+import React from "react";
+import { Dropdown } from "./Dropdown";
 
-export default function ItemCourse({inforCourse,btnCheckBox}) {
+export default function ItemCourse({ key, inforCourse, setPrice, inforCourse , btnCheckBox }) {
   return (
-    <CheckBox elm={inforCourse} btnCheckBox={btnCheckBox}/>
-  )
-}
+    <div>
+      <CheckBox elm={inforCourse} btnCheckBox={btnCheckBox}/>
+      <Dropdown inforCourse={inforCourse} setPrice={setPrice} />
+    </div>
+  );
 
