@@ -1,9 +1,9 @@
 import React from 'react'
+import CheckBox from './CheckBox'
 
-export default function ItemCourse() {
+export default function ItemCourse({inforCourse,btnCheckBox}) {
   return (
-    <div>
-        
-    </div>
+    <CheckBox elm={inforCourse} btnCheckBox={btnCheckBox}/>
   )
 }
+
