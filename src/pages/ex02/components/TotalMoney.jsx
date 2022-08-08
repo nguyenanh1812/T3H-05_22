@@ -5,6 +5,7 @@ import { data } from "../../../constants";
 function TotalMoney({data}) {
   
   return (
+
     <div className='total-containt'>
       <div className="top">
         <div className="sub-total">Sub Total</div>
@@ -16,6 +17,9 @@ function TotalMoney({data}) {
         <div className="resuilt-total">$2.654</div>
       </div>
     </div>
+
+    <div></div>
+
   )
 }
 export default TotalMoney;
