@@ -6,13 +6,13 @@ export function TotalMoney({ data }) {
       {data.map((item, index) => (
         <div key={index}>
           <div class="col-md-5">
-            <p>$ {item.price}/month</p>
-            <span>({item.percentDiscount} %)</span>
+            <p>$ {item.opt.price}/month</p>
+            <span>({item.opt.percentDiscount} %)</span>
             <br />
-            <span>$ {item.priceDiscount}/month</span>
+            <span>$ {item.opt.priceDiscount}/month</span>
           </div>
           <div class="col-md-5">
-            <p>- $ {item.price - item.priceDiscount}</p>
+            <p>- $ {item.opt.price - item.opt.priceDiscount}</p>
           </div>
         </div>
       ))}
