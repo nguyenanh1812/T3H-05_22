@@ -61,7 +61,7 @@ export default function ItemCourse({
             <div className='text-start'>{name}</div>
             <div className='text-start'>{crrItem.name}</div>
             <div className='text-start w-100'>
-              <Dropdown inforCourse={inforCourse} setPrice={setPrice} />
+              {/* <Dropdown inforCourse={inforCourse} setPrice={setPrice} /> */}
             </div>
           </div>
         </div>
