@@ -1,15 +1,17 @@
-function Dropdown({ list, setIndexOption }) {
-  const renderOption = (data) => {
-    return data.map((i, index) => (
-      <option key={index} value={index}>
-        {i.name}
-      </option>
-    ));
-  };
+import React from "react";
 
+export const Dropdown = ({ inforCourse, setPrice }) => {
   return (
-    <select onChange={(e) => setIndexOption(e)}>{renderOption(list)}</select>
+    <div className=''>
+      <select className='w-25 p-2' style={{ fontWeight: "700" }}>
+        {inforCourse.opt.map((item) => {
+          return (
+            <option value={item.name} onClick={setPrice}>
+              {item.name}
+            </option>
+          );
+        })}
+      </select>
+    </div>
   );
-}
-
-export default Dropdown;
+};
