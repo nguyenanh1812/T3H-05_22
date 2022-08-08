@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { data } from "../../../constants";
+import ItemCourse from "./ItemCourse";
 
 const listCourse = data.map((el, index) => ({
   ...el,
