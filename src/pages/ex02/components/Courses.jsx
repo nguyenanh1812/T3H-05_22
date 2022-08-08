@@ -21,9 +21,16 @@ export default function Courses() {
   }
   return (
     <div>
+
+      {/* {courses.map((el) => (
+        <ItemCourse key={el.id} inforCourse={el} />
+      ))} */}
+
       {courses.map((el) => (
         <ItemCourse key={el.id} inforCourse={el} btnCheckBox={btnCheckBox}/>
       ))}
+
     </div>
   );
 }
+
