@@ -8,14 +8,8 @@ const listCourse = data.map((el, index) => ({
   checkPay: false,
 }));
 
-export default function Courses({ setListCourse }) {
+export default function Courses({ setListCourse, setItemMoney}) {
   const [courses, setCourses] = useState([...listCourse]);
-
-  // const [arrValueCheck, setArrValueCheck] = useState(
-  //   listCourse.map((elm) => {
-  //     return { value: elm.opt[0].value, checkPay: false };
-  //   })
-  // );
 
   const btnCheckBox = (index, checked) => {
     courses[index] = {
@@ -23,24 +17,11 @@ export default function Courses({ setListCourse }) {
       checkPay: checked,
     };
     setListCourse(courses.filter((i) => i.checkPay));
-
-    // arrValueCheck[index].checkPay = !arrValueCheck[index].checkPay;
-    // setArrValueCheck([...arrValueCheck]);
-    // setListCourse((prev) => [
-    //   ...prev,
-    //   {
-    //     index: index,
-    //   },
-    // ]);
   };
   return (
     <div>
-      {/* {courses.map((el) => (
-        <ItemCourse key={el.id} inforCourse={el} />
-      ))} */}
-
-      {courses.map((el) => (
-        <ItemCourse key={el.id} inforCourse={el} btnCheckBox={btnCheckBox}/>
+      {courses.map((el,index1) => (
+        <ItemCourse key={el.id} inforCourse={el} btnCheckBox={btnCheckBox} setItemMoney={setItemMoney} index1={index1}/>
       ))}
     </div>
   );

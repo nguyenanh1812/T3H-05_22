@@ -1,5 +1,5 @@
 function Img({ src }) {
-  return <img src={src} alt="" width={150} height={150} />;
+  return <img src={src} alt="" className="w-75"/>;
 }
 
 export default Img;

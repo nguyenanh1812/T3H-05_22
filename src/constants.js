@@ -36,8 +36,8 @@ export const data = [
     course: "day",
   },
   {
-    name: "JavaScript",
-    img: 'https://www.freecodecamp.org/news/content/images/2021/06/javascriptfull.png',
+    name: "ReactJS",
+    img: 'https://ms314006.github.io/static/b7a8f321b0bbc07ca9b9d22a7a505ed5/97b31/React.jpg',
     opt: [
       {
         name: "30 days",
@@ -71,8 +71,8 @@ export const data = [
     course: "day",
   },
   {
-    name: "Question Interview",
-    img: 'https://www.freecodecamp.org/news/content/images/2021/06/javascriptfull.png',
+    name: "Ruby on Rails",
+    img: 'https://community-cdn-digitalocean-com.global.ssl.fastly.net/assets/tutorials/images/large/ruby-on-rails.jpg?1576864227',
     opt: [
       {
         name: "1 Sessions",
@@ -99,8 +99,8 @@ export const data = [
     course: "session",
   },
   {
-    name: "MOCK INTERVIEWS",
-    img: 'https://www.freecodecamp.org/news/content/images/2021/06/javascriptfull.png',
+    name: "Java",
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZv7zDrthWh4shEHklZp5N3ZPRJ6LCCU-01A&usqp=CAU',
     opt: [
       {
         name: "1 Sessions",
