@@ -2,7 +2,7 @@ import React from "react";
 import "../../../App.css";
 // import { data } from "../../../constants";
 
-function TotalMoney({ data }) {
+function TotalMoney({ listCourseSelect }) {
   return (
     <div className="total-containt">
       <div className="top">

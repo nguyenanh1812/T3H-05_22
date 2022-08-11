@@ -4,6 +4,7 @@ import Img from "./Img";
 // import Input from "./Input";
 import CheckBox from "./CheckBox";
 import { data } from "../../../constants";
+import { Dropdown } from "./Dropdown";
 
 const listCourse = data.map((el, index) => ({
   ...el,
@@ -14,6 +15,8 @@ export default function ItemCourse({
   inforCourse,
   setListCourse,
   btnCheckBox,
+  selectValue,
+  id
 }) {
   // const [isChecked, setIsChecked] = useState(false);
   const [courses, setCourses] = useState([...listCourse]);
@@ -61,7 +64,8 @@ export default function ItemCourse({
             <div className='text-start'>{name}</div>
             <div className='text-start'>{crrItem.name}</div>
             <div className='text-start w-100'>
-              {/* <Dropdown inforCourse={inforCourse} setPrice={setPrice} /> */}
+            {/* setPrice={setPrice}  */}
+              <Dropdown inforCourse={inforCourse} selectValue={selectValue} index={id}/>
             </div>
           </div>
         </div>
