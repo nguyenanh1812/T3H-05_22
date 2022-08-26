@@ -1,51 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Img from "./Img";
-// import Input from "./Input";
 import CheckBox from "./CheckBox";
-import { data } from "../../../constants";
-
-const listCourse = data.map((el, index) => ({
-  ...el,
-  id: index + 1,
-}));
+import { Dropdown } from "./Dropdown";
 
 export default function ItemCourse({
   inforCourse,
-  setListCourse,
   btnCheckBox,
+  setItemMoney,
+  index1
 }) {
-  // const [isChecked, setIsChecked] = useState(false);
-  const [courses, setCourses] = useState([...listCourse]);
   const [index, setIndex] = useState(0);
-
-  const [arrValueCheck, setArrValueCheck] = useState(
-    listCourse.map((elm) => {
-      return { value: elm.opt[0].value, checkPay: false };
-    })
-  );
+  const [option, setOption] = useState({})
 
   const handleCheckbox = (index, e) => {
     btnCheckBox(index, e.target.checked);
-    // arrValueCheck[index].checkPay = !arrValueCheck[index].checkPay;
-    // setArrValueCheck([...arrValueCheck]);
   };
 
   const { name, img, opt } = inforCourse;
   const crrItem = opt[index];
 
-  // const { name2, value, price, priceDiscount, percentDiscount } = opt[indexOpt];
-  // const setIndexOption = (e) => {
-  //   e.stopPropagation();
-  //   setIndexOpt(e.target.value);
-  //   setIsChecked(!true);
-  // };
+  const handleOptChange = (e) => {
+    const value = inforCourse.opt.find(opt => opt.value == e.target.value)
+    setOption(
+      value
+    )
+  }
 
-  // const handleUnchecked = () => {
-  //   setIsChecked(!isChecked);
-  // };
+  // console.log(index1);
+  useEffect(() => {
+    setItemMoney({
+      id: index1 + 1,
+      ...option
+    })
+  }, [option])
   return (
-    <div className='container my-3'>
+    <div className='container my-3 border border-3 rounded p-2'>
       <div
         className='row d-flex align-items-center'
         style={{ cursor: "pointer" }}
@@ -55,26 +45,28 @@ export default function ItemCourse({
             <CheckBox elm={inforCourse} handleCheckbox={handleCheckbox} />
           </div>
           <div className='col-5'>
-            <Img src={img} />
+            <label className="form-check-label" for={inforCourse.name}>
+              <Img src={img} />
+            </label>
           </div>
           <div className='col-5 d-flex flex-column justify-content-start'>
             <div className='text-start'>{name}</div>
-            <div className='text-start'>{crrItem.name}</div>
+            <div className='text-start'>{option.name || crrItem.name}</div>
             <div className='text-start w-100'>
-              {/* <Dropdown inforCourse={inforCourse} setPrice={setPrice} /> */}
+              <Dropdown inforCourse={inforCourse} handleOptChange={handleOptChange} />
             </div>
           </div>
         </div>
         <div className='col-6 row d-flex align-items-center'>
           <div className='col-6'>
-            <div className='fs-4'>${crrItem.priceDiscount} /month</div>
-            <div className='text-success'>( %{crrItem.percenDiscount} off)</div>
+            <div className='fs-4'>${option.priceDiscount || crrItem.priceDiscount} /month</div>
+            <div className='text-success'>( %{option.percentDiscount || crrItem.percentDiscount} off)</div>
             <div className='text-decoration-line-through'>
-              $ {crrItem.price}/month
+              $ {option.price || crrItem.price}/month
             </div>
           </div>
           <div className='col-6 fs-5 text-success'>
-            - $ {crrItem.price - crrItem.priceDiscount}
+            - $ {(option.price - option.priceDiscount) || crrItem.price - crrItem.priceDiscount}
           </div>
         </div>
       </div>
